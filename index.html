@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMate Seniors — Your Parents' Tech Bestie 🧓💻</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'inter': ['Inter', 'sans-serif'] },
+                    colors: {
+                        coral: { 50: '#FFF5F2', 100: '#FFE8E0', 200: '#FFD0C0', 300: '#FFB09A', 400: '#FF8A6B', 500: '#FF6B42', 600: '#E8522A', 700: '#C03D1C', 800: '#9A3118', 900: '#7D2A16' },
+                        ocean: { 50: '#EFF6FF', 100: '#DBEAFE', 200: '#BFDBFE', 300: '#93C5FD', 400: '#60A5FA', 500: '#3B82F6', 600: '#2563EB', 700: '#1D4ED8', 800: '#1E40AF', 900: '#1E3A8A' },
+                        sunny: { 400: '#FACC15', 500: '#EAB308' },
+                        mint: { 50: '#F0FDF9', 100: '#CCFBEF', 400: '#34D399', 500: '#10B981' },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delay': 'float 6s ease-in-out 2s infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slide-up-delay': 'slideUp 0.8s ease-out 0.2s forwards',
+                        'slide-up-delay2': 'slideUp 0.8s ease-out 0.4s forwards',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                        'gradient-x': 'gradientX 8s ease infinite',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.08); opacity: 0.8; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        @keyframes gradientX {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes bounceGentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .gradient-hero {
+            background: linear-gradient(135deg, #FF6B42 0%, #FF8A6B 25%, #FFB09A 50%, #60A5FA 75%, #3B82F6 100%);
+            background-size: 300% 300%;
+            animation: gradientX 8s ease infinite;
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #FF6B42, #E8522A, #C03D1C);
+        }
+        .gradient-cctv {
+            background: linear-gradient(135deg, #1E3A8A, #1D4ED8, #2563EB, #3B82F6);
+            background-size: 300% 300%;
+            animation: gradientX 6s ease infinite;
+        }
+        .glass {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .glass-dark {
+            background: rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .blob-1 {
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,107,66,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulseSoft 5s ease-in-out infinite;
+        }
+        .blob-2 {
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: pulseSoft 5s ease-in-out 2s infinite;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px -12px rgba(0,0,0,0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B42, #E8522A);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-primary:hover::after { left: 100%; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -8px rgba(255,107,66,0.5); }
+        
+        .btn-blue {
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-blue::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-blue:hover::after { left: 100%; }
+        .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -8px rgba(37,99,235,0.5); }
+
+        .marquee-track {
+            animation: marquee 25s linear infinite;
+        }
+        .pricing-glow {
+            box-shadow: 0 0 0 1px rgba(255,107,66,0.1), 0 20px 60px -15px rgba(255,107,66,0.3);
+        }
+        .cctv-glow {
+            box-shadow: 0 0 0 1px rgba(37,99,235,0.1), 0 20px 60px -15px rgba(37,99,235,0.3);
+        }
+        .sticky-cta {
+            transition: all 0.4s ease;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FF6B42, #E8522A, #2563EB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #2563EB, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .divider-wave {
+            position: relative;
+        }
+        .divider-wave::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 100%;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 C360,60 720,0 1080,30 C1260,45 1380,40 1440,30 L1440,60 L0,60 Z' fill='%23FFFBF7'/%3E%3C/svg%3E") no-repeat bottom center;
+            background-size: cover;
+        }
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+        .trust-badge:hover {
+            transform: scale(1.05);
+        }
+        .nav-scrolled {
+            background: rgba(255,251,247,0.92) !important;
+            backdrop-filter: blur(20px) !important;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important;
+        }
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+        /* Toast notification */
+        .toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-[#FFFBF7] text-gray-800 overflow-x-hidden">
+
+    <!-- Sticky Top Bar -->
+    <div class="bg-gradient-to-r from-coral-500 via-coral-600 to-ocean-600 text-white text-center py-2.5 px-4 text-sm font-medium z-[60] relative">
+        <div class="flex items-center justify-center gap-2 flex-wrap">
+            <span class="animate-wiggle inline-block">📢</span>
+            <span>Flat <strong>$99/hr</strong> tech support for seniors — CCTV installed for just <strong>$100/camera</strong>!</span>
+            <a href="#book" class="underline underline-offset-2 font-semibold hover:text-sunny-400 transition-colors ml-1">Book Now →</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-[44px] left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-coral-500 to-coral-600 flex items-center justify-center text-white text-xl shadow-lg shadow-coral-500/30">
+                    🧓
+                </div>
+                <span class="text-xl font-bold text-gray-900">Tech<span class="text-coral-500">Mate</span></span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-sm font-medium text-gray-600 hover:text-coral-500 transition-colors">Services</a>
+                <a href="#cctv" class="text-sm font-medium text-gray-600 hover:text-coral-500 transition-colors">CCTV Deal</a>
+                <a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-coral-500 transition-colors">Pricing</a>
+                <a href="#how" class="text-sm font-medium text-gray-600 hover:text-coral-500 transition-colors">How It Works</a>
+                <a href="#book" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Book a Visit
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menuToggle" class="md:hidden w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                <i data-lucide="menu" class="w-5 h-5 text-gray-700"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100">
+            <div class="px-6 py-4 flex flex-col gap-3">
+                <a href="#services" class="py-2 text-gray-700 font-medium" onclick="closeMobile()">Services</a>
+                <a href="#cctv" class="py-2 text-gray-700 font-medium" onclick="closeMobile()">CCTV Deal</a>
+                <a href="#pricing" class="py-2 text-gray-700 font-medium" onclick="closeMobile()">Pricing</a>
+                <a href="#how" class="py-2 text-gray-700 font-medium" onclick="closeMobile()">How It Works</a>
+                <a href="#book" class="btn-primary text-white text-center px-6 py-3 rounded-full font-semibold mt-2" onclick="closeMobile()">Book a Visit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-hero divider-wave relative min-h-[100vh] flex items-center pt-32 pb-40 overflow-hidden">
+        <div class="blob-1 top-20 -left-40"></div>
+        <div class="blob-2 bottom-20 right-0"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-32 right-10 md:right-20 text-6xl animate-float opacity-80">📱</div>
+        <div class="absolute bottom-40 left-8 md:left-16 text-5xl animate-float-delay opacity-80">🛡️</div>
+        <div class="absolute top-48 left-1/4 text-4xl animate-float opacity-60 hidden md:block">💻</div>
+        <div class="absolute bottom-52 right-1/4 text-4xl animate-float-delay opacity-60 hidden md:block">📹</div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <!-- Badge -->
+                <div class="animate-slide-up inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-white/90 text-sm font-medium">Serving Melbourne's Western Suburbs</span>
+                </div>
+                
+                <h1 class="animate-slide-up text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight mb-6">
+                    Tech Help<br>
+                    <span class="text-sunny-400">Your Parents</span><br>
+                    Actually Need
+                </h1>
+                
+                <p class="animate-slide-up-delay text-xl md:text-2xl text-white/85 font-light leading-relaxed max-w-2xl mb-10">
+                    No jargon. No rush. Just patient, friendly tech support for seniors — right at their doorstep. Based in <strong class="font-semibold">Werribee</strong>.
+                </p>
+                
+                <div class="animate-slide-up-delay2 flex flex-col sm:flex-row gap-4">
+                    <a href="#book" class="bg-white text-coral-600 px-8 py-4 rounded-full text-lg font-bold inline-flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Book a Home Visit
+                    </a>
+                    <a href="#cctv" class="glass text-white px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center justify-center gap-2 hover:bg-white/25 transition-all duration-300">
+                        <i data-lucide="video" class="w-5 h-5"></i>
+                        CCTV Special — $100
+                    </a>
+                </div>
+                
+                <!-- Trust Row -->
+                <div class="mt-12 flex flex-wrap items-center gap-6 text-white/70 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Police Check Available</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>Same-Week Visits</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                        <span>Patience Guaranteed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Trust Bar -->
+    <div class="bg-white border-b border-gray-100 py-5 overflow-hidden">
+        <div class="flex whitespace-nowrap">
+            <div class="marquee-track flex items-center gap-12 text-gray-400 text-sm font-medium">
+                <span class="flex items-center gap-2">⭐ "Finally someone who explains things slowly!"</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">👨‍👧‍👦 "My mum can now FaceTime the grandkids!"</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">📹 "CCTV setup was so easy, $100 well spent."</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">💚 "No tech talk, just plain English."</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">🏠 "Came to dad's house, fixed everything in an hour."</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">⭐ "Finally someone who explains things slowly!"</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">👨‍👧‍👦 "My mum can now FaceTime the grandkids!"</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">📹 "CCTV setup was so easy, $100 well spent."</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">💚 "No tech talk, just plain English."</span>
+                <span>•</span>
+                <span class="flex items-center gap-2">🏠 "Came to dad's house, fixed everything in an hour."</span>
+                <span>•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <section class="py-20 md:py-28 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <span class="inline-block text-5xl mb-6">😔</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Sound Familiar?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-5 text-left max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-gray-600 flex items-start gap-3">
+                        <span class="text-red-400 mt-0.5">✗</span>
+                        "Mum, just press the green button... no, the OTHER green button..."
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-gray-600 flex items-start gap-3">
+                        <span class="text-red-400 mt-0.5">✗</span>
+                        Dad hasn't updated his iPad in 2 years and it's barely working.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-gray-600 flex items-start gap-3">
+                        <span class="text-red-400 mt-0.5">✗</span>
+                        "I worry about them being alone. I wish I could check in visually."
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-gray-600 flex items-start gap-3">
+                        <span class="text-red-400 mt-0.5">✗</span>
+                        They won't call a "geek" because they're intimidated by tech people.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="#book" class="text-coral-500 font-semibold text-lg inline-flex items-center gap-2 hover:gap-3 transition-all">
+                    Let us handle all of that <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-28 px-6 bg-gradient-to-b from-[#FFFBF7] to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-coral-50 text-coral-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                    <i data-lucide="wrench" class="w-4 h-4"></i> Our Services
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Everything Your Parents <span class="text-gradient">Actually Need</span>
+                </h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">No upselling. No confusing packages. Just real help for real problems.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                <!-- Service Card 1 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-coral-50 flex items-center justify-center text-3xl mb-5">📞</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Video Call Setup</h3>
+                    <p class="text-gray-500 leading-relaxed">FaceTime, WhatsApp, Zoom — we set it all up and teach them step by step. No more missed grandkid moments.</p>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-ocean-50 flex items-center justify-center text-3xl mb-5">📱</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Phone & iPad Setup</h3>
+                    <p class="text-gray-500 leading-relaxed">New device? No worries. We'll unbox, set up, transfer data, and make it senior-friendly with big text & simple layout.</p>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-3xl mb-5">🔧</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">General Tech Fixes</h3>
+                    <p class="text-gray-500 leading-relaxed">Slow computer? Printer won't connect? WiFi dropping? Pop-ups? We fix it all with zero tech jargon.</p>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-3xl mb-5">🏠</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Home Check-Ins</h3>
+                    <p class="text-gray-500 leading-relaxed">Can't visit your parents? We'll go check on them, make sure everything's working, and report back to you. Peace of mind.</p>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-50 flex items-center justify-center text-3xl mb-5">🔒</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Scam Protection</h3>
+                    <p class="text-gray-500 leading-relaxed">Seniors are #1 scam targets. We set up spam filters, ad blockers, and teach them how to spot suspicious messages.</p>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="card-hover bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center text-3xl mb-5">📺</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Smart TV & Streaming</h3>
+                    <p class="text-gray-500 leading-relaxed">Netflix, YouTube, Chromecast — we set up the TV so they can watch what they want, when they want, without calling you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CCTV Special Offer Section -->
+    <section id="cctv" class="py-20 md:py-28 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-cctv opacity-[0.03]"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 bg-ocean-50 text-ocean-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+                        <span class="animate-bounce-gentle inline-block">🔥</span> Special Offer for Families
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                        Keep an Eye on<br>Mum & Dad —<br>
+                        <span class="text-gradient-blue">Just $100/Camera</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg leading-relaxed mb-8">
+                        We install affordable CCTV cameras at your parents' home so you can check in on them anytime from your phone. No monthly fees. No complicated setup. Just peace of mind.
+                    </p>
+                    
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-ocean-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">View from Your Phone</p>
+                                <p class="text-gray-500 text-sm">Live stream anytime via free app — iOS & Android</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-ocean-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Night Vision Included</p>
+                                <p class="text-gray-500 text-sm">Crystal clear footage even in complete darkness</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-ocean-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Two-Way Audio</p>
+                                <p class="text-gray-500 text-sm">Talk to your parents through the camera — "Mum, don't open that door!"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-ocean-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">No Monthly Fees</p>
+                                <p class="text-gray-500 text-sm">One-time cost. SD card recording. No subscriptions ever.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#book" class="btn-blue text-white px-8 py-4 rounded-full text-lg font-bold inline-flex items-center gap-2">
+                        <i data-lucide="video" class="w-5 h-5"></i>
+                        Get CCTV Installed — $100
+                    </a>
+                </div>
+                
+                <!-- Right Visual -->
+                <div class="reveal relative">
+                    <div class="cctv-glow rounded-[2rem] overflow-hidden">
+                        <img src="https://picsum.photos/seed/cctv-senior-home/700/800.jpg" alt="CCTV for senior home" class="w-full h-[500px] lg:h-[600px] object-cover">
+                    </div>
+                    <!-- Floating Price Tag -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 animate-bounce-gentle">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-ocean-50 flex items-center justify-center text-2xl">📹</div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider">Per Camera</p>
+                                <p class="text-3xl font-black text-ocean-600">$100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-4 -right-4 bg-green-500 text-white rounded-full px-4 py-2 text-sm font-bold shadow-lg animate-pulse">
+                        No Monthly Fee!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 md:py-28 px-6 bg-gradient-to-b from-white to-[#FFF5F0]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-coral-50 text-coral-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                    <i data-lucide="tag" class="w-4 h-4"></i> Simple Pricing
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    No Hidden Fees. <span class="text-gradient">Ever.</span>
+                </h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Transparent pricing you can explain to your parents over the phone.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 reveal">
+                <!-- Main Pricing Card -->
+                <div class="pricing-glow bg-white rounded-3xl p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-coral-50 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-3xl">🧑‍🔧</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Home Tech Support</h3>
+                        </div>
+                        <p class="text-gray-500 mb-8">We come to your parents' door. Simple as that.</p>
+                        
+                        <div class="flex items-end gap-1 mb-2">
+                            <span class="text-7xl font-black text-coral-500">$99</span>
+                            <span class="text-gray-400 text-lg font-medium mb-2">/hour</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-8">Minimum 1 hour charge</p>
+                        
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-coral-500 flex-shrink-0"></i>
+                                <span>Any tech issue — phones, tablets, computers, TVs</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-coral-500 flex-shrink-0"></i>
+                                <span>Patience-first approach — no rushing</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-coral-500 flex-shrink-0"></i>
+                                <span>We explain everything in plain English</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-coral-500 flex-shrink-0"></i>
+                                <span>Follow-up phone support included</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-coral-500 flex-shrink-0"></i>
+                                <span>Report back to you (the family) if requested</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#book" class="btn-primary text-white w-full py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CCTV Pricing Card -->
+                <div class="cctv-glow bg-white rounded-3xl p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-ocean-50 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-3xl">📹</span>
+                            <h3 class="text-2xl font-bold text-gray-900">CCTV Installation</h3>
+                        </div>
+                        <p class="text-gray-500 mb-8">For families who want to check in from afar.</p>
+                        
+                        <div class="flex items-end gap-1 mb-2">
+                            <span class="text-7xl font-black text-ocean-600">$100</span>
+                            <span class="text-gray-400 text-lg font-medium mb-2">/camera</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-8">Includes installation & app setup</p>
+                        
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-500 flex-shrink-0"></i>
+                                <span>HD camera with night vision</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-500 flex-shrink-0"></i>
+                                <span>Free phone app — view live from anywhere</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-500 flex-shrink-0"></i>
+                                <span>Two-way audio built in</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-500 flex-shrink-0"></i>
+                                <span>SD card recording — no cloud fees</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-ocean-500 flex-shrink-0"></i>
+                                <span>We teach your parents how it works</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#book" class="btn-blue text-white w-full py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2">
+                            <i data-lucide="video" class="w-5 h-5"></i>
+                            Get Cameras Installed
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distance Note -->
+            <div class="mt-10 reveal">
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-2xl flex-shrink-0">🚗</div>
+                    <div>
+                        <p class="font-semibold text-amber-800 mb-1">Travel Charge Applies</p>
+                        <p class="text-amber-700 text-sm leading-relaxed">
+                            Based in <strong>Werribee</strong>. First 10km from our office is free. Beyond that, <strong>$2 per km</strong> applies. You'll always know the exact cost before we arrive — no surprises.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 bg-gray-50 border border-gray-200 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-2xl flex-shrink-0">⏱️</div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-1">How We Count Time</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            The 1-hour minimum starts from the moment we <strong>leave our office</strong> — not when we arrive at your door. This covers our travel time within the free 10km zone. Additional time is billed in 30-minute increments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="py-20 md:py-28 px-6 bg-[#FFFBF7]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-green-50 text-green-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                    <i data-lucide="list-ordered" class="w-4 h-4"></i> Dead Simple Process
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    How It Works
+                </h2>
+                <p class="text-gray-500 text-lg">Three steps. That's it. Your parents won't need to do anything complicated.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 reveal">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-coral-500 to-coral-600 flex items-center justify-center text-white text-3xl font-black mx-auto mb-6 shadow-lg shadow-coral-500/30">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">You Book</h3>
+                    <p class="text-gray-500">Fill in the form or call us. Tell us what your parents need. We'll confirm a time that suits them.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-ocean-500 to-ocean-600 flex items-center justify-center text-white text-3xl font-black mx-auto mb-6 shadow-lg shadow-ocean-500/30">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">We Visit</h3>
+                    <p class="text-gray-500">We show up at their door with a smile. No uniforms that intimidate. Just a friendly face ready to help.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white text-3xl font-black mx-auto mb-6 shadow-lg shadow-green-500/30">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Problem Solved</h3>
+                    <p class="text-gray-500">We fix the issue, teach them how to use it, and optionally report back to you. Everyone's happy. 😊</p>
+                </div>
+            </div>
+            
+            <!-- Connection Line (desktop only) -->
+            <div class="hidden md:flex justify-center mt-[-140px] mb-[80px] pointer-events-none">
+                <div class="w-[60%] border-t-2 border-dashed border-gray-200"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Is This For Section -->
+    <section class="py-20 md:py-28 px-6 bg-gradient-to-b from-[#FFFBF7] to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Built for <span class="text-gradient">Two Types</span> of People
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 reveal">
+                <!-- For Seniors -->
+                <div class="bg-gradient-to-br from-coral-50 to-orange-50 rounded-3xl p-10 border border-coral-100">
+                    <div class="text-5xl mb-5">🧓</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">For Seniors</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3">
+                            <span class="text-coral-500 font-bold mt-0.5">→</span>
+                            <span>You're confused by technology and want someone patient</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-coral-500 font-bold mt-0.5">→</span>
+                            <span>You want to video call your family but don't know how</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-coral-500 font-bold mt-0.5">→</span>
+                            <span>Your device is slow, broken, or doing weird things</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-coral-500 font-bold mt-0.5">→</span>
+                            <span>You're tired of waiting for your kids to "come fix it"</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-coral-500 font-bold mt-0.5">→</span>
+                            <span>You want someone who speaks your language, not "tech"</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- For Children -->
+                <div class="bg-gradient-to-br from-ocean-50 to-blue-50 rounded-3xl p-10 border border-ocean-100">
+                    <div class="text-5xl mb-5">👨‍👧</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">For Their Children</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3">
+                            <span class="text-ocean-500 font-bold mt-0.5">→</span>
+                            <span>You live far away and can't always visit to fix things</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-ocean-500 font-bold mt-0.5">→</span>
+                            <span>You want CCTV so you can check on them remotely</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-ocean-500 font-bold mt-0.5">→</span>
+                            <span>You're worried about scams targeting your parents</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-ocean-500 font-bold mt-0.5">→</span>
+                            <span>You need someone trustworthy to visit them regularly</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-ocean-500 font-bold mt-0.5">→</span>
+                            <span>You want peace of mind without doing it all yourself</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us / Trust Section -->
+    <section class="py-20 md:py-28 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Why Families <span class="text-gradient">Trust Us</span>
+                </h2>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="trust-badge text-center p-6">
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Patience First</h3>
+                    <p class="text-gray-500 text-sm">We'll explain the same thing 50 times if needed. With a smile.</p>
+                </div>
+                <div class="trust-badge text-center p-6">
+                    <div class="text-5xl mb-4">🏠</div>
+                    <h3 class="font-bold text-gray-900 mb-1">House Calls</h3>
+                    <p class="text-gray-500 text-sm">We come to them. No need to lug a computer to a shop.</p>
+                </div>
+                <div class="trust-badge text-center p-6">
+                    <div class="text-5xl mb-4">💬</div>
+                    <h3 class="font-bold text-gray-900 mb-1">No Jargon</h3>
+                    <p class="text-gray-500 text-sm">We speak human. Not "reboot the router and clear the DNS cache."</p>
+                </div>
+                <div class="trust-badge text-center p-6">
+                    <div class="text-5xl mb-4">💯</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Transparent</h3>
+                    <p class="text-gray-500 text-sm">You know the cost before we start. No surprise bills. Ever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Contact Section -->
+    <section id="book" class="py-20 md:py-28 px-6 bg-gradient-to-b from-[#FFF5F0] to-[#FFFBF7] relative overflow-hidden">
+        <div class="blob-1 -top-40 -right-40 opacity-30"></div>
+        <div class="blob-2 -bottom-40 -left-40 opacity-20"></div>
+        
+        <div class="max-w-4xl mx-auto relative">
+            <div class="text-center mb-12 reveal">
+                <span class="inline-flex items-center gap-2 bg-coral-50 text-coral-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i> Book a Visit
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Let's Help Your Parents
+                </h2>
+                <p class="text-gray-500 text-lg">Fill in the form below and we'll get back to you within a few hours.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-8 md:p-12 border border-gray-100 reveal">
+                <form id="bookingForm" onsubmit="handleBooking(event)">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
+                            <input type="text" required placeholder="e.g. Sarah" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Your Phone *</label>
+                            <input type="tel" required placeholder="e.g. 04XX XXX XXX" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Parent's Name</label>
+                            <input type="text" placeholder="e.g. Margaret" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Suburb</label>
+                            <input type="text" required placeholder="e.g. Hoppers Crossing" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">What do they need help with? *</label>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Video call setup</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Phone / iPad setup</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">CCTV installation</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Computer / laptop fix</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Smart TV / streaming</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Home check-in visit</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Scam protection</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <span class="text-gray-700 text-sm">Something else</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Any extra details?</label>
+                        <textarea rows="3" placeholder="Tell us more about the issue so we can come prepared..." class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary text-white w-full py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        Send Booking Request
+                    </button>
+                    
+                    <p class="text-center text-gray-400 text-sm mt-4">We'll reply within a few hours. No spam, we promise.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Map Note -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <div class="inline-flex items-center gap-2 text-gray-400 text-sm mb-4">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                Service Area
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Based in Werribee, Serving Melbourne's West</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">
+                We happily serve Werribee, Hoppers Crossing, Point Cook, Tarneit, Truganina, Williams Landing, Laverton, Altona, Sunshine, Footscray, and surrounding areas. 
+                <strong class="text-gray-700">First 10km free</strong> — beyond that, just $2/km.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Werribee</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Point Cook</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Hoppers Crossing</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Tarneit</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Truganina</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Williams Landing</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Laverton</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Altona</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">Sunshine</span>
+                <span class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">+ more</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 md:py-28 px-6">
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="gradient-hero rounded-[2rem] p-12 md:p-16 text-center relative overflow-hidden">
+                <div class="blob-1 -top-20 -left-20 opacity-40"></div>
+                <div class="blob-2 -bottom-20 -right-20 opacity-40"></div>
+                <div class="relative">
+                    <div class="text-6xl mb-6">🤗</div>
+                    <h2 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+                        Your Parents Deserve<br>Better Than "Google It"
+                    </h2>
+                    <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                        Let us be their tech bestie. One visit and they'll never feel lost with technology again.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#book" class="bg-white text-coral-600 px-8 py-4 rounded-full text-lg font-bold inline-flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1 transition-all duration-300">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Book a Visit — $99/hr
+                        </a>
+                        <a href="tel:+61400000000" class="glass text-white px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center justify-center gap-2 hover:bg-white/25 transition-all duration-300">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            Call Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-coral-500 to-coral-600 flex items-center justify-center text-white text-xl">🧓</div>
+                        <span class="text-xl font-bold text-white">Tech<span class="text-coral-500">Mate</span></span>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed text-sm">
+                        Patient, friendly tech support for seniors in Melbourne's western suburbs. Because your parents deserve better.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="#services" class="block hover:text-coral-400 transition-colors">Services</a>
+                        <a href="#cctv" class="block hover:text-coral-400 transition-colors">CCTV Special</a>
+                        <a href="#pricing" class="block hover:text-coral-400 transition-colors">Pricing</a>
+                        <a href="#how" class="block hover:text-coral-400 transition-colors">How It Works</a>
+                        <a href="#book" class="block hover:text-coral-400 transition-colors">Book a Visit</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-coral-500"></i>
+                            <span>Werribee, VIC 3030</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-coral-500"></i>
+                            <a href="tel:+61400000000" class="hover:text-coral-400 transition-colors">04XX XXX XXX</a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-coral-500"></i>
+                            <a href="mailto:hello@techmate.com.au" class="hover:text-coral-400 transition-colors">hello@techmate.com.au</a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-coral-500"></i>
+                            <span>Mon–Sat, 8am–6pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+                <p>© 2025 TechMate Seniors. All rights reserved.</p>
+                <p class="text-gray-600">Made with ❤️ in Werribee, Melbourne</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-xl border-t border-gray-200 translate-y-full transition-transform duration-300 md:hidden">
+        <a href="#book" class="btn-primary text-white w-full py-3.5 rounded-2xl text-base font-bold flex items-center justify-center gap-2">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            Book a Visit — $99/hr
+        </a>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[70] bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm">
+        <span class="text-2xl">✅</span>
+        <div>
+            <p class="font-semibold text-sm">Booking Sent!</p>
+            <p class="text-gray-400 text-xs">We'll get back to you within a few hours.</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+        });
+
+        function closeMobile() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Sticky mobile CTA
+        const stickyCta = document.getElementById('stickyCta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                stickyCta.style.transform = 'translateY(0)';
+            } else {
+                stickyCta.style.transform = 'translateY(100%)';
+            }
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Form submission
+        function handleBooking(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            // Reset form
+            e.target.reset();
+            
+            // Hide toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 120;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
