@@ -192,7 +192,6 @@
             backdrop-filter: blur(20px) !important;
             box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important;
         }
-        /* Mobile menu */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -203,17 +202,6 @@
             max-height: 400px;
             opacity: 1;
         }
-        /* Toast notification */
-        .toast {
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -841,29 +829,31 @@
             </div>
             
             <div class="bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-8 md:p-12 border border-gray-100 reveal">
-                <form id="bookingForm" action="https://formsubmit.co/kshitijgarg950@gmail.com" method="POST" onsubmit="handleBooking(event)">
+                <form id="bookingForm" action="https://formsubmit.co/kshitijgarg950@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="New TechMate Booking Request!">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://kshitijgargmelbourne.github.io/techmate-seniors/thank-you.html">                                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <input type="hidden" name="_next" value="https://kshitijgargmelbourne.github.io/techmate-seniors/thank-you.html">
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
-                            <input type="text" required placeholder="e.g. Sarah" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                            <input type="text" name="Your Name" required placeholder="e.g. Sarah" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Your Phone *</label>
-                            <input type="tel" required placeholder="e.g. 04XX XXX XXX" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                            <input type="tel" name="Your Phone" required placeholder="e.g. 04XX XXX XXX" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
                         </div>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Parent's Name</label>
-                            <input type="text" placeholder="e.g. Margaret" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                            <input type="text" name="Parent Name" placeholder="e.g. Margaret" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Suburb</label>
-                            <input type="text" required placeholder="e.g. Hoppers Crossing" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
+                            <input type="text" name="Suburb" required placeholder="e.g. Hoppers Crossing" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400">
                         </div>
                     </div>
                     
@@ -871,35 +861,35 @@
                         <label class="block text-sm font-semibold text-gray-700 mb-3">What do they need help with? *</label>
                         <div class="grid sm:grid-cols-2 gap-3">
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Video call setup" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Video call setup</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Phone / iPad setup" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Phone / iPad setup</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="CCTV installation" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">CCTV installation</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Computer / laptop fix" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Computer / laptop fix</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Smart TV / streaming" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Smart TV / streaming</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Home check-in visit" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Home check-in visit</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Scam protection" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Scam protection</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-coral-300 hover:bg-coral-50 transition-all cursor-pointer">
-                                <input type="checkbox" class="w-5 h-5 rounded accent-coral-500">
+                                <input type="checkbox" name="Services" value="Something else" class="w-5 h-5 rounded accent-coral-500">
                                 <span class="text-gray-700 text-sm">Something else</span>
                             </label>
                         </div>
@@ -907,7 +897,7 @@
                     
                     <div class="mb-8">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Any extra details?</label>
-                        <textarea rows="3" placeholder="Tell us more about the issue so we can come prepared..." class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"></textarea>
+                        <textarea name="Extra Details" rows="3" placeholder="Tell us more about the issue so we can come prepared..." class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"></textarea>
                     </div>
                     
                     <button type="submit" class="btn-primary text-white w-full py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2">
@@ -1009,21 +999,21 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="phone" class="w-4 h-4 text-coral-500"></i>
-                            <a href="tel:+61400000000" class="hover:text-coral-400 transition-colors">04XX XXX XXX</a>
+                            <a href="tel:+61468468621" class="hover:text-coral-400 transition-colors">04XX XXX XXX</a>
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="mail" class="w-4 h-4 text-coral-500"></i>
-                            <a href="mailto:hello@techmate.com.au" class="hover:text-coral-400 transition-colors">hello@techmate.com.au</a>
+                            <a href="mailto:kshitijgarg950@gmail.com" class="hover:text-coral-400 transition-colors">hello@techmate.com.au</a>
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="clock" class="w-4 h-4 text-coral-500"></i>
-                            <span>Mon–Sat, 8am–6pm</span>
+                            <span>Mon–Sun, 5am–8pm : Home visits outide hours are charged differently</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-                <p>© 2025 TechMate Seniors. All rights reserved.</p>
+                <p>© 2026 TechMate Seniors. All rights reserved.</p>
                 <p class="text-gray-600">Made with ❤️ in Werribee, Melbourne</p>
             </div>
         </div>
@@ -1037,20 +1027,9 @@
         </a>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[70] bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm">
-        <span class="text-2xl">✅</span>
-        <div>
-            <p class="font-semibold text-sm">Booking Sent!</p>
-            <p class="text-gray-400 text-xs">We'll get back to you within a few hours.</p>
-        </div>
-    </div>
-
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         let menuOpen = false;
@@ -1065,7 +1044,6 @@
             mobileMenu.classList.remove('open');
         }
 
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -1075,7 +1053,6 @@
             }
         });
 
-        // Sticky mobile CTA
         const stickyCta = document.getElementById('stickyCta');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 600) {
@@ -1085,7 +1062,6 @@
             }
         });
 
-        // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1094,25 +1070,8 @@
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
         reveals.forEach(el => revealObserver.observe(el));
 
-        // Form submission
-        function handleBooking(e) {
-            e.preventDefault();
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            
-            // Reset form
-            e.target.reset();
-            
-            // Hide toast after 4 seconds
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
-
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
